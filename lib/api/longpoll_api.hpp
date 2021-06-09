@@ -5,6 +5,7 @@
 #include "lib/api/vk_api.hpp"
 
 namespace vk{
+    /// Если у тебя класс с одной функцией, задумайся, нужен ли тебе класс или функция
     struct longpoll_api{
     private:
         vk::network _curl;
@@ -12,6 +13,7 @@ namespace vk{
 
         std::string _server, _key, _ts;
     public:
+        /// Зачем принимать строку по ссылке, если можно создать её внутри функции и вернуть?
         void listen(std::string& res);
     };
 }

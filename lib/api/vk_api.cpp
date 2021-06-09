@@ -5,6 +5,7 @@ std::string vk::vk_api::method(std::string_view meth) const {
 }
 
 std::vector<vk::network::param> vk::vk_api::params(const std::vector<vk::network::param>& prms) const {
+    /// Токен может быть как группы, так и юзера
     std::vector<vk::network::param> res = {
             {"access_token", _token},
             {"v",            _api_v}
@@ -42,6 +43,7 @@ std::string vk::vk_api::user_get(int user_ids){
 
     _json = _parser.parse(req);
 
+    /// Здесь тоже format мастхев
     return std::string(_json["response"].at(0)["first_name"]) + " " + std::string(_json["response"].at(0)["last_name"]);
 }
 

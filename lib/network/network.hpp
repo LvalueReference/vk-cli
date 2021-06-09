@@ -10,10 +10,13 @@
 #include <curlpp/cURLpp.hpp>
 
 namespace vk{
+    /// Почему структура, а не класс?
     struct network{
     private:
         curlpp::Easy _curl;
     public:
+        /// Эта структура нужна не только в network, поэтому лучше
+        /// определить её отдельно
         struct param{
             std::string key;
             std::string value;

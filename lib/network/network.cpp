@@ -5,6 +5,9 @@ static std::string gen_params(const std::vector<vk::network::param>& params){
     std::string res;
 
     for (const auto& [key, value] : params)
+        /// Вот чтобы этого не очень красивого кода не было, нужен format
+        /// Можно так:
+        ///     res += format("{}={}&", key, value);
         res += key + '=' + value + '&';
 
     return res;
