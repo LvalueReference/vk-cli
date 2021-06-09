@@ -11,17 +11,16 @@ namespace vk{
     private:
         vk::vk_api _api;
         vk::longpoll_api _lp;
-        vk::network _curl;
 
         simdjson::dom::parser _parser;
-        simdjson::dom::object _json;
+        simdjson::dom::element _json;
 
-        std::string _response, _message;
+        std::string _message, _response;
         int _peer_id, _from_id;
 
-        void init();
-        std::string message();
         std::string from();
+        std::string message();
+
     public:
         void run();
     };

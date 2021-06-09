@@ -1,5 +1,4 @@
-#include "reader/reader.hpp"
-#include <iostream>
+#include "reader.hpp"
 
 int main(){
     vk::reader reader;
