@@ -24,12 +24,12 @@ add_executable(vkreader
 target_link_libraries(vkreader curlpp)
 
 include_directories(${CURL_INCLUDE_DIR})
-include_directories(.)
-include_directories(lib)
-include_directories(lib/config)
-include_directories(lib/network)
-include_directories(lib/simdjson)
-include_directories(lib/api)
-include_directories(reader)
+include_directories(.
+    lib
+    lib/config
+    lib/network
+    lib/simdjson
+    lib/api
+    reader)
 
 target_link_libraries(vkreader ${CURL_LIBRARIES})
