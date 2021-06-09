@@ -3,16 +3,17 @@
 
 #include "lib/network/network.hpp"
 #include "lib/api/vk_api.hpp"
+#include "lib/config/config.hpp"
 
 namespace vk{
-    struct longpoll_api{
+    class longpoll_api{
     private:
         vk::network _curl;
         vk::vk_api _api;
 
-        std::string _server, _key, _ts;
+        vk::longpoll_data _conf;
     public:
-        void listen(std::string& res);
+        std::string listen();
     };
 }
 

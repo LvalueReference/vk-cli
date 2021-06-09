@@ -10,7 +10,7 @@
 #include <curlpp/cURLpp.hpp>
 
 namespace vk{
-    struct network{
+    class network{
     private:
         curlpp::Easy _curl;
     public:
@@ -24,3 +24,4 @@ namespace vk{
 }
 
 #endif //NETWORK_HPP
+

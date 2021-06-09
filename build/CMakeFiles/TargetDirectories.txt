@@ -1,0 +1,3 @@
+/home/dian/Dev/vkreader/build/CMakeFiles/rebuild_cache.dir
+/home/dian/Dev/vkreader/build/CMakeFiles/edit_cache.dir
+/home/dian/Dev/vkreader/build/CMakeFiles/vkreader.dir

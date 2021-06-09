@@ -6,8 +6,8 @@ std::string vk::vk_api::method(std::string_view meth) const {
 
 std::vector<vk::network::param> vk::vk_api::params(const std::vector<vk::network::param>& prms) const {
     std::vector<vk::network::param> res = {
-            {"access_token", _token},
-            {"v",            _api_v}
+            {"access_token", _conf.token},
+            {"v",            _conf.api_v}
     };
 
     for (const auto& i : prms)
@@ -17,22 +17,26 @@ std::vector<vk::network::param> vk::vk_api::params(const std::vector<vk::network
 }
 
 vk::vk_api::vk_api() : _json(_parser.load("../lib/config/config.json")){
-    _token = _json["TOKEN"].get_c_str();
-    _admin = _json["ADMIN"].get_c_str();
-    _group = _json["GROUP"].get_c_str();
-    _api_v = _json["API_V"].get_c_str();
+    _conf = {
+            std::string(_json["TOKEN"]),
+            std::string(_json["ADMIN"]),
+            std::string(_json["GROUP"]),
+            std::string(_json["API_V"])
+    };
 }
 
-void vk::vk_api::get_lp_server(std::string& server, std::string& key, std::string& ts) {
+vk::longpoll_data vk::vk_api::get_lp_server() {
     std::string req = _curl.request(method("groups.getLongPollServer"), params({
-            {"group_id", _group}
+            {"group_id",    }
     }));
 
     _json = _parser.parse(req);
 
-    server = _json["response"]["server"];
-    key = _json["response"]["key"];
-    ts = _json["response"]["ts"];
+    return {
+        std::string(_json["response"]["server"]),
+        std::string(_json["response"]["key"]),
+        std::string(_json["response"]["ts"])
+    };
 }
 
 std::string vk::vk_api::user_get(int user_ids){
