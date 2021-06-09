@@ -33,5 +33,6 @@
 
 reader
 cmake-build-debug
+.idea
 
 lib/config/my_config.json
