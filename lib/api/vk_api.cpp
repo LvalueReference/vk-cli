@@ -17,7 +17,7 @@ std::vector<vk::network::param> vk::vk_api::params(const std::vector<vk::network
 }
 
 vk::vk_api::vk_api() : _json(_parser.load("../lib/config/config.json")){
-    _conf = {
+    _conf = vk::vk_api_data{
             std::string(_json["TOKEN"]),
             std::string(_json["ADMIN"]),
             std::string(_json["GROUP"]),
