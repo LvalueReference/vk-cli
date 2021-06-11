@@ -20,7 +20,8 @@ add_executable(vkreader
         lib/api/longpoll_api.cpp
         lib/api/apis_data.hpp
         reader/reader.hpp
-        reader/reader.cpp)
+        reader/reader.cpp
+        reader/reader_data.hpp)
 
 target_link_libraries(vkreader curlpp)
 

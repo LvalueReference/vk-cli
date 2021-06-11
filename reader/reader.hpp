@@ -5,21 +5,24 @@
 #include "lib/api/longpoll_api.hpp"
 #include "lib/network/network.hpp"
 #include "simdjson/simdjson.h"
+#include "reader_data.hpp"
+
+#include <time.h>
 
 namespace vk{
-    struct reader{
+    class reader{
     private:
         vk::vk_api _api;
         vk::longpoll_api _lp;
 
+        vk::reader_data _data;
+
         simdjson::dom::parser _parser;
         simdjson::dom::element _json;
 
-        std::string _message, _response;
-        int _peer_id, _from_id;
-
         std::string message();
         std::string from();
+        std::string time();
     public:
         void run();
     };

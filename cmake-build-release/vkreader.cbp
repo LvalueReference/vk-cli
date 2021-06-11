@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="vkreader"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/dian/Dev/vkreader/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/dian/Dev/vkreader/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/dian/Dev/vkreader/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vkreader">
+				<Option output="/home/dian/Dev/vkreader/cmake-build-release/vkreader" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dian/Dev/vkreader/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/dian/Dev/vkreader/."/>
+					<Add directory="/home/dian/Dev/vkreader/lib"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/api"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/network"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/simdjson"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/config"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-10/lib/clang/10.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 vkreader"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vkreader/fast">
+				<Option output="/home/dian/Dev/vkreader/cmake-build-release/vkreader" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dian/Dev/vkreader/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/home/dian/Dev/vkreader/."/>
+					<Add directory="/home/dian/Dev/vkreader/lib"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/api"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/network"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/simdjson"/>
+					<Add directory="/home/dian/Dev/vkreader/lib/config"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/bin/../lib/gcc/x86_64-linux-gnu/10/../../../../include/c++/10/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/llvm-10/lib/clang/10.0.0/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 vkreader/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/dian/Dev/vkreader/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/dian/Dev/vkreader/lib/api/apis_data.hpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/api/longpoll_api.cpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/api/longpoll_api.hpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/api/vk_api.cpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/api/vk_api.hpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/network/network.cpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/network/network.hpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/simdjson/simdjson.cpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/lib/simdjson/simdjson.h">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/main.cpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/reader/reader.cpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/reader/reader.hpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/reader/reader_data.hpp">
+			<Option target="vkreader"/>
+		</Unit>
+		<Unit filename="/home/dian/Dev/vkreader/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
