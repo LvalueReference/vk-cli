@@ -31,10 +31,7 @@
 *.out
 *.app
 
-reader
 cmake-build-debug
 .idea
 
 lib/config/my_config.json
-cmake-build-debug/config.json
-cmake-build-debug/my_config.json
