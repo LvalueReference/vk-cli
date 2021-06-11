@@ -1,1 +1,0 @@
-/usr/bin/clang++ -O3 -DNDEBUG CMakeFiles/vkreader.dir/main.cpp.o CMakeFiles/vkreader.dir/lib/network/network.cpp.o CMakeFiles/vkreader.dir/lib/simdjson/simdjson.cpp.o CMakeFiles/vkreader.dir/lib/api/vk_api.cpp.o CMakeFiles/vkreader.dir/lib/api/longpoll_api.cpp.o CMakeFiles/vkreader.dir/reader/reader.cpp.o -o vkreader  -lcurlpp -lcurl 

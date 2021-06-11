@@ -1,4 +1,0 @@
-/home/dian/Downloads/clion-2020.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -G "CodeBlocks - Unix Makefiles" /home/dian/Dev/vkreader
--- Configuring done
--- Generating done
--- Build files have been written to: /home/dian/Dev/vkreader/cmake-build-release
