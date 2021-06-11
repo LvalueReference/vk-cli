@@ -18,9 +18,8 @@ namespace vk{
         std::string _message, _response;
         int _peer_id, _from_id;
 
-        std::string from();
         std::string message();
-
+        std::string from();
     public:
         void run();
     };
