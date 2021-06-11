@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16.3)
+cmake_minimum_required(VERSION 3.17)
 project(vkreader)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -6,7 +6,7 @@ set(CURL_LIBRARY "-lcurl")
 
 find_package(CURL REQUIRED)
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/config/config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/config/my_config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(vkreader
         main.cpp
@@ -18,7 +18,7 @@ add_executable(vkreader
         lib/api/vk_api.cpp
         lib/api/longpoll_api.hpp
         lib/api/longpoll_api.cpp
-        lib/api/config/config.hpp
+        lib/api/apis_data.hpp
         reader/reader.hpp
         reader/reader.cpp)
 

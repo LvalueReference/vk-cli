@@ -27,7 +27,7 @@ vk::vk_api::vk_api() : _json(_parser.load("../lib/config/config.json")){
 
 vk::longpoll_data vk::vk_api::get_lp_server() {
     std::string req = _curl.request(method("groups.getLongPollServer"), params({
-            {"group_id",    }
+            {"group_id", _conf.group}
     }));
 
     _json = _parser.parse(req);

@@ -27,7 +27,7 @@ void vk::reader::run(){
     std::cout << "Started" << std::endl;
 
     while(true){
-        _lp.listen(_response);
+        _response = _lp.listen();
         _json = _parser.parse(_response);
 
         if (_json["updates"].get_array().size() != 0){

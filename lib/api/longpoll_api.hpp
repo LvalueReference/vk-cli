@@ -3,7 +3,7 @@
 
 #include "lib/network/network.hpp"
 #include "lib/api/vk_api.hpp"
-#include "lib/config/config.hpp"
+#include "apis_data.hpp"
 
 namespace vk{
     class longpoll_api{

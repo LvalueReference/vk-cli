@@ -1,5 +1,5 @@
-#ifndef CONFIG_HPP
-#define CONFIG_HPP
+#ifndef APIS_DATA_HPP
+#define APIS_DATA_HPP
 
 namespace vk{
     struct vk_api_data{
@@ -16,4 +16,4 @@ namespace vk{
     };
 }
 
-#endif //CONFIG_HPP
+#endif //APIS_DATA_HPP
