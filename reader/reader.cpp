@@ -1,10 +1,6 @@
 #include "reader.hpp"
 #include <iomanip>
 
-std::string vk::reader::from(){
-    return (_data.from_id > 0 ? _api.user_get(_data.from_id) : _api.group_get(_data.from_id));
-}
-
 static bool has_reply(const simdjson::dom::element& json){
     return json["object"]["message"]["reply_message"].is_object();
 }
@@ -37,6 +33,10 @@ std::string vk::reader::message(){
     }
 
     return res;
+}
+
+std::string vk::reader::from(){
+    return (_data.from_id > 0 ? _api.user_get(_data.from_id) : _api.group_get(_data.from_id));
 }
 
 std::string vk::reader::time(){
