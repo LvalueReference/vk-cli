@@ -9,6 +9,10 @@ static bool has_attachments(const simdjson::dom::element& json){
     return json["object"]["message"]["attachments"].get_array().size() != 0;
 }
 
+static bool has_fwd(const simdjson::dom::element& json){
+    return json["object"]["message"]["fwd_messages"].get_array().size() != 0;
+}
+
 static std::string get_reply_text(const simdjson::dom::element& json){
     return std::string(json["object"]["message"]["reply_message"]["text"]);
 }
@@ -49,7 +53,7 @@ std::string vk::reader::reader::time(){
 }
 
 void vk::reader::reader::run(){
-    std::cout << "Started" << std::endl;
+    std::cout << "==========[ Starting to read the chat ]==========" << std::endl;
 
     while(true){
         _json = _parser.parse(_lp.listen());
@@ -61,7 +65,8 @@ void vk::reader::reader::run(){
                 _data.from_id = updates["object"]["message"]["from_id"].get_int64();
             }
 
-            std::cout << '(' << time() << ") [" << from() << "] $-> " << message() << std::endl;
+            std::cout << "┌[\033[32m" + from() << "\033[0m] (" << time()  << ")\n"
+                         "└[message]> \033[34m" << message() << "\033[0m" << std::endl;
         }
     }
 }
