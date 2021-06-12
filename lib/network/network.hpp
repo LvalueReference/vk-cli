@@ -10,16 +10,16 @@
 #include <curlpp/cURLpp.hpp>
 
 namespace vk{
-    class network{
+    class network {
     private:
         curlpp::Easy _curl;
     public:
-        struct param{
-            std::string key;
-            std::string value;
+        struct param {
+        std::string key;
+        std::string value;
         };
 
-        std::string request(std::string_view url, const std::vector<param>& params);
+        std::string request(std::string_view url, const std::vector<param> &params);
     };
 }
 

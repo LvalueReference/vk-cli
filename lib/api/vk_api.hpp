@@ -9,24 +9,26 @@
 #include <vector>
 
 namespace vk{
-    class vk_api{
-    private:
-        vk::network _curl;
+    namespace api {
+        class vk_api {
+        private:
+            vk::network _curl;
 
-        simdjson::dom::parser _parser;
-        simdjson::dom::object _json;
+            simdjson::dom::parser _parser;
+            simdjson::dom::object _json;
 
-        vk::vk_api_data _conf;
-    public:
-        vk_api();
+            vk::api::vk_api_data _conf;
+        public:
+            vk_api();
 
-        std::string method(std::string_view meth) const;
-        std::vector<vk::network::param> params(const std::vector<vk::network::param>& prms) const;
+            std::string method(std::string_view meth) const;
+            std::vector<vk::network::param> params(std::vector<vk::network::param> prms);
 
-        vk::longpoll_data get_lp_server();
-        std::string user_get(int user_ids);
-        std::string group_get(int group_ids);
-    };
+            vk::api::longpoll_data get_lp_server();
+            std::string user_get(int user_ids);
+            std::string group_get(int group_ids);
+        };
+    }
 }
 
 #endif //VK_API_HPP

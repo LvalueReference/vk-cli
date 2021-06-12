@@ -21,7 +21,7 @@ static std::string get_attachments_count(const simdjson::dom::element& json){
     return std::to_string(json["object"]["message"]["attachments"].get_array().size());
 }
 
-std::string vk::reader::message(){
+std::string vk::reader::reader::message(){
     std::string res = _data.message;
 
     for (const auto& updates : _json["updates"].get_array()){
@@ -35,11 +35,11 @@ std::string vk::reader::message(){
     return res;
 }
 
-std::string vk::reader::from(){
+std::string vk::reader::reader::from(){
     return (_data.from_id > 0 ? _api.user_get(_data.from_id) : _api.group_get(_data.from_id));
 }
 
-std::string vk::reader::time(){
+std::string vk::reader::reader::time(){
     time_t t;
     ::time(&t);
 
@@ -48,7 +48,7 @@ std::string vk::reader::time(){
     return std::to_string(tme->tm_hour) + ':' + std::to_string(tme->tm_min);
 }
 
-void vk::reader::run(){
+void vk::reader::reader::run(){
     std::cout << "Started" << std::endl;
 
     while(true){

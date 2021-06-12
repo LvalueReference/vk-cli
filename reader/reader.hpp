@@ -10,22 +10,24 @@
 #include <time.h>
 
 namespace vk{
-    class reader{
-    private:
-        vk::vk_api _api;
-        vk::longpoll_api _lp;
+    namespace reader {
+        class reader {
+        private:
+            vk::api::vk_api _api;
+            vk::api::longpoll_api _lp;
 
-        vk::reader_data _data;
+            vk::reader::reader_data _data;
 
-        simdjson::dom::parser _parser;
-        simdjson::dom::element _json;
+            simdjson::dom::parser _parser;
+            simdjson::dom::element _json;
 
-        std::string message();
-        std::string from();
-        std::string time();
-    public:
-        void run();
-    };
+            std::string message();
+            std::string from();
+            std::string time();
+        public:
+            void run();
+        };
+    }
 }
 
 #endif //READER_HPP

@@ -6,15 +6,17 @@
 #include "apis_data.hpp"
 
 namespace vk{
-    class longpoll_api{
-    private:
-        vk::network _curl;
-        vk::vk_api _api;
+    namespace api {
+        class longpoll_api {
+        private:
+            vk::network _curl;
+            vk::api::vk_api _api;
 
-        vk::longpoll_data _conf;
-    public:
-        std::string listen();
-    };
+            vk::api::longpoll_data _conf;
+        public:
+            std::string listen();
+        };
+    }
 }
 
 #endif //LONGPOLL_API
