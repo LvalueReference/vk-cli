@@ -6,8 +6,8 @@
 #include "apis_data.hpp"
 
 namespace vk{
-    namespace api {
-        class longpoll_api {
+    namespace api{
+        class longpoll_api{
         private:
             vk::network _curl;
             vk::api::vk_api _api;

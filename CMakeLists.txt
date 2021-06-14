@@ -21,7 +21,9 @@ add_executable(vkreader
         lib/api/apis_data.hpp
         reader/reader.hpp
         reader/reader.cpp
-        reader/reader_data.hpp)
+        reader/reader_data.hpp
+        reader/message.hpp
+        reader/message.cpp)
 
 target_link_libraries(vkreader curlpp)
 
