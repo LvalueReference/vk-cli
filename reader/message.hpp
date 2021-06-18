@@ -20,17 +20,20 @@ namespace vk{
             std::string from();
             std::string time();
 
-            std::string hffff(){
-                return _data.message;
-            }
-
             bool has_reply();
             bool has_attachments();
+            bool has_attachments(const simdjson::dom::element& att);
             bool has_fwd();
 
+            auto get_attachments();
+            auto get_attachments(const simdjson::dom::element& att);
+            auto get_reply();
+            auto get_fwd();
             std::string get_reply_text();
-            std::string get_attachment_type(const simdjson::dom::object& att);
-            std::string get_attachments_count(const simdjson::dom::object& att);
+            std::string get_reply_from();
+            std::string get_attachment_type();
+            std::string get_attachment_type(const simdjson::dom::element& att);
+            //std::string get_attachments_count(const simdjson::dom::object& att);
         };
     }
 }

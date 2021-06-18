@@ -12,7 +12,7 @@ void vk::reader::reader::run(){
                 _data.init(updates);
 
             std::cout << "┌[\033[32m" + _data.from() << "\033[0m] (" << _data.time()  << ")\n"
-                         "└[message]> \033[34m" << _data.msg() << "\033[0m" << std::endl;
+                         "└[message]> \033[35m" << _data.msg() << "\033[0m" << std::endl;
         }
     }
 }
