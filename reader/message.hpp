@@ -2,23 +2,23 @@
 #define MESSAGE_HPP
 
 #include "simdjson/simdjson.h"
+#include "reader_data.hpp"
 #include "lib/api/vk_api.hpp"
 #include "message_parser.hpp"
-#include "reader/reader_data.hpp"
 
 namespace reader{
     class message{
     private:
         simdjson::dom::element _json;
+        reader::reader_data _rdata;
         vk::api::vk_api _api;
-        vk::reader::reader_data _data;
         reader::message_parser _mp;
     public:
-        simdjson::dom::element operator=(const simdjson::dom::element& json);
+        simdjson::dom::element operator= (const simdjson::dom::element& json);
 
-        std::string msg();
+        std::string message_text();
         std::string from();
-        std::string time();
+        std::string current_time();
     };
 }
 
