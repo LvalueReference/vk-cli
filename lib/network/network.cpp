@@ -5,7 +5,7 @@ static std::string gen_params(const std::vector<vk::network::param>& params){
     std::string res;
 
     for (const auto& [key, value] : params)
-        res += key + '=' + value + '&';
+        res.insert(0, key + '=' + value + '&');
 
     return res;
 }

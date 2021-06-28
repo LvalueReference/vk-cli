@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.17)
 project(vkreader)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CURL_LIBRARY "-lcurl")
+set(CURL_LIBRARY "-lcurl -lcurlpp")
 
 find_package(CURL REQUIRED)
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/config/my_config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY config/my_config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(vkreader
         main.cpp
@@ -23,7 +23,9 @@ add_executable(vkreader
         reader/reader.cpp
         reader/reader_data.hpp
         reader/message.hpp
-        reader/message.cpp)
+        reader/message.cpp
+        reader/message_parser.hpp
+        reader/message_parser.cpp)
 
 target_link_libraries(vkreader curlpp)
 
@@ -33,6 +35,6 @@ include_directories(lib)
 include_directories(lib/api)
 include_directories(lib/network)
 include_directories(lib/simdjson)
-include_directories(lib/config)
+include_directories(config)
 
 target_link_libraries(vkreader ${CURL_LIBRARIES})
