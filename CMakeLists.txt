@@ -8,6 +8,15 @@ find_package(CURL REQUIRED)
 
 file(COPY config/my_config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
+include_directories(${CURL_INCLUDE_DIR})
+include_directories(.)
+include_directories(lib)
+include_directories(lib/api)
+include_directories(lib/network)
+include_directories(lib/simdjson)
+include_directories(reader)
+include_directories(config)
+
 add_executable(vkreader
         main.cpp
         lib/network/network.hpp
@@ -28,13 +37,4 @@ add_executable(vkreader
         reader/message_parser.cpp)
 
 target_link_libraries(vkreader curlpp)
-
-include_directories(${CURL_INCLUDE_DIR})
-include_directories(.)
-include_directories(lib)
-include_directories(lib/api)
-include_directories(lib/network)
-include_directories(lib/simdjson)
-include_directories(config)
-
 target_link_libraries(vkreader ${CURL_LIBRARIES})
