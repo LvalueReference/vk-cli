@@ -30,14 +30,13 @@
      - В поле `API_V` нужно указать последнюю версию **VK Api**, узнать её можно [**Здесь**](https://vk.com/dev/versions)
 
 # Сборка
-1. Установка библиотек
-   - Для работы программы нам потребуется установить: **cmake**, **libcurl**, **libcurlpp**
-     - Установка для Linux:
-       С помощью пакетного менеджера вашего дистрибутива установить библиотеки. Рассмотрим 2 примера:
+1. Установка библиотек 
+   Для работы программы нам потребуется установить: **cmake**, **libcurl**, **libcurlpp**
+   - С помощью пакетного менеджера вашего дистрибутива установить библиотеки. Рассмотрим 2 примера:
        1. Debian-based дистрибутивы: 
           ```commandline
           sudo apt update
-          sudo apt install cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev --yes`
+          sudo apt install cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev --yes
           ```
        2. Arch-based дистрибутивы:
           ```commandline
