@@ -2,8 +2,8 @@
 #include "reader/reader.hpp"
 
 int main(){
-    reader::chat_reader reader;
-    reader.run();
+    vk::api::longpoll_api lp;
+    std::cout << lp.listen() << std::endl;
 
     return EXIT_SUCCESS;
 }
