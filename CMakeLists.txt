@@ -37,4 +37,5 @@ add_executable(vkreader
         reader/message_parser.cpp)
 
 target_link_libraries(vkreader curlpp)
+target_link_libraries(vkreader fmt)
 target_link_libraries(vkreader ${CURL_LIBRARIES})
