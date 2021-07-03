@@ -1,5 +1,6 @@
 #include "message.hpp"
 #include <ostream>
+#include <fmt/format.h>
 
 simdjson::dom::element reader::message::operator=(const simdjson::dom::element &json) {
     _rdata = reader::reader_data{
@@ -16,11 +17,13 @@ std::string reader::message::message_text() {
     std::string res = _rdata.message;
 
     if (_mp.has_reply())
-        res.insert(0, "{reply to " + _mp.get_reply_from() + ": " + _mp.get_reply_attachments_types() + _mp.get_reply_text() + "} ");
+        res.insert(0, fmt::format("[reply to {}: {}{}] ", _mp.get_reply_from(),
+                                                          _mp.get_reply_attachments_types(),
+                                                          _mp.get_reply_text()));
 
     if (_mp.has_attachments()){
         for (const auto& att : _mp.get_attachments()){
-            res.insert(0, '{' + _mp.get_attachment_type(att) + "} ");
+            res.append(fmt::format(" [{}]", _mp.get_attachment_type(att)));
         }
     }
 
@@ -28,9 +31,10 @@ std::string reader::message::message_text() {
         res.append(" {fwd message}:\n");
 
         for (const auto& fwd : _mp.get_fwd()){
-            res.append("\t\t\t\033[0m┌[\033[32m" + _mp.get_fwd_from(fwd) + "\033[0m]\n"
-                              "\t\t\t└[message]> \033[36m" + _mp.get_fwd_attachments_types(fwd) +
-                                                             _mp.get_fwd_text(fwd) + "\033[0m\n");
+            res.append(fmt::format("\t\t\t\033[0m┌[\033[32m{}\033[0m]\n\t\t\t└[message]> \033[36m{}{}\033[0m\n",
+                                   _mp.get_fwd_from(fwd),
+                                   _mp.get_fwd_attachments_types(fwd),
+                                   _mp.get_fwd_text(fwd)));
         }
     }
 
@@ -47,5 +51,9 @@ std::string reader::message::current_time() {
 
     tm* tme = localtime(&t);
 
-    return std::to_string(tme->tm_hour) + ':' + std::to_string(tme->tm_min);
+    return fmt::format("{}:{}", std::to_string(tme->tm_hour), std::to_string(tme->tm_min));
+}
+
+std::string reader::message::chat_name() {
+    return _api.get_chat_name(_rdata.peer_id);
 }

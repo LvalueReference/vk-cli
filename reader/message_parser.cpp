@@ -1,4 +1,5 @@
 #include "message_parser.hpp"
+#include <fmt/format.h>
 
 simdjson::dom::element reader::message_parser::operator=(const simdjson::dom::element &json) {
     _json = json;
@@ -66,7 +67,7 @@ std::string reader::message_parser::get_reply_attachments_types() {
     std::string res;
 
     for (const auto& att : get_attachments(get_reply()))
-        res.insert(0, '{' + get_attachment_type(att) + "} ");
+        res.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
 
     return res;
 }
@@ -77,7 +78,7 @@ std::string reader::message_parser::get_fwd_attachments_types(const simdjson::do
     std::string res;
 
     for (const auto& att : get_attachments(fwd))
-        res.insert(0, '{' + get_attachment_type(att) + "} ");
+        res.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
 
     return res;
 }

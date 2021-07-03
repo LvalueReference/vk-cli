@@ -18,6 +18,7 @@ namespace reader{
 
         std::string message_text();
         std::string from();
+        std::string chat_name();
         std::string current_time();
     };
 }
