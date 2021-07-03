@@ -27,6 +27,7 @@ namespace vk{
             vk::api::longpoll_data get_lp_server();
             std::string user_get(int user_ids);
             std::string group_get(int group_ids);
+            std::string get_chat_name(int peer_id);
         };
     }
 }

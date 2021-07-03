@@ -1,7 +1,8 @@
 #include "lib/api/vk_api.hpp"
+#include <fmt/format.h>
 
 std::string vk::api::vk_api::method(std::string_view meth) const {
-    return "https://api.vk.com/method/" + std::string(meth.data()) + '?';
+    return fmt::format("https://api.vk.com/method/{}?", std::string(meth.data()));
 }
 
 std::vector<vk::network::param> vk::api::vk_api::params(std::vector<vk::network::param> prms){
@@ -11,7 +12,7 @@ std::vector<vk::network::param> vk::api::vk_api::params(std::vector<vk::network:
     return prms;
 }
 
-vk::api::vk_api::vk_api() : _json(_parser.load("../config/config.json")){
+vk::api::vk_api::vk_api() : _json(_parser.load("../config/my_config.json")){
     _conf = vk::api::vk_api_data{
             std::string(_json["TOKEN"]),
             std::string(_json["ADMIN"]),
@@ -37,7 +38,8 @@ std::string vk::api::vk_api::user_get(int user_ids) {
             {"user_ids", std::to_string(user_ids)}
     })));
 
-    return std::string(_json["response"].at(0)["first_name"]) + " " + std::string(_json["response"].at(0)["last_name"]);
+    return fmt::format("{} {}", std::string(_json["response"].at(0)["first_name"]),
+                                std::string(_json["response"].at(0)["last_name"]));
 }
 
 std::string vk::api::vk_api::group_get(int group_ids) {
@@ -46,4 +48,13 @@ std::string vk::api::vk_api::group_get(int group_ids) {
     })));
 
     return std::string(_json["response"].at(0)["name"]);
+}
+
+std::string vk::api::vk_api::get_chat_name(int peer_id) {
+    _json = _parser.parse(_curl.request(method("messages.getConversationsById"), params({
+        {"peer_ids", std::to_string(peer_id)},
+        {"group_id", _conf.group}
+    })));
+
+    return std::string(_json["response"]["items"].get_array().at(0)["chat_settings"]["title"]);
 }
