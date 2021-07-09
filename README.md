@@ -20,7 +20,7 @@
      ```commandline
      git clone https://github.com/LvalueReference/vk-cli.git
      ```
-   - Перейти в директории с помощью команды
+   - Перейти в директорию с помощью команды
      ```commandline
      cd vk-cli
      ```
