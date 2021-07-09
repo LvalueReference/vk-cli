@@ -48,7 +48,7 @@ std::string reader::message_parser::get_reply_text() {
 }
 
 std::string reader::message_parser::get_reply_from() {
-    int from_id = get_reply()["from_id"].get_int64();
+    std::int64_t from_id = get_reply()["from_id"];
 
     return (from_id > 0 ? _api.user_get(from_id) : _api.group_get(from_id));
 }
@@ -88,7 +88,7 @@ std::string reader::message_parser::get_fwd_text(const simdjson::dom::element& f
 }
 
 std::string reader::message_parser::get_fwd_from(const simdjson::dom::element& fwd) {
-    int from_id = fwd["from_id"].get_int64();
+    std::int64_t from_id = fwd["from_id"];
 
     return (from_id > 0 ? _api.user_get(from_id) : _api.group_get(from_id));
 }

@@ -3,7 +3,7 @@
 std::string vk::api::longpoll_api::listen() {
     _conf = _api.get_lp_server();
 
-    return _curl.request(_conf.server + '?', {
+    return vk::request(_conf.server + '?', {
             {"act",  "a_check"},
             {"key",  _conf.key},
             {"ts",   _conf.ts},

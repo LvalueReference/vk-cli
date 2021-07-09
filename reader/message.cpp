@@ -1,5 +1,8 @@
 #include "message.hpp"
-#include <ostream>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sys/time.h>
 #include <fmt/format.h>
 
 simdjson::dom::element reader::message::operator=(const simdjson::dom::element &json) {
@@ -13,7 +16,7 @@ simdjson::dom::element reader::message::operator=(const simdjson::dom::element &
     _json = json;
 }
 
-std::string reader::message::message_text() {
+std::string reader::message::message_text(){
     std::string res = _rdata.message;
 
     if (_mp.has_reply())
@@ -46,12 +49,12 @@ std::string reader::message::from() {
 }
 
 std::string reader::message::current_time() {
-    time_t t;
-    ::time(&t);
+	std::ostringstream sdf;
 
-    tm* tme = localtime(&t);
-
-    return fmt::format("{}:{}", std::to_string(tme->tm_hour), std::to_string(tme->tm_min));
+	std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+	std::time_t now_c = std::chrono::system_clock::to_time_t(now - std::chrono::hours(24));
+	sdf << std::put_time(std::localtime(&now_c), "%T");
+	return sdf.str();
 }
 
 std::string reader::message::chat_name() {

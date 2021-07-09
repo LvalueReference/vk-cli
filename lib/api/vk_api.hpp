@@ -12,17 +12,12 @@ namespace vk{
     namespace api {
         class vk_api {
         private:
-            vk::network _curl;
-
-            simdjson::dom::parser _parser;
-            simdjson::dom::object _json;
-
             vk::api::vk_api_data _conf;
         public:
             vk_api();
 
             std::string method(std::string_view meth) const;
-            std::vector<vk::network::param> params(std::vector<vk::network::param> prms);
+            std::vector<vk::_param_type> params(std::vector<vk::_param_type> parameters);
 
             vk::api::longpoll_data get_lp_server();
             std::string user_get(int user_ids);

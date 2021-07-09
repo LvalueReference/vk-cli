@@ -3,9 +3,9 @@
 
 namespace reader{
     struct reader_data{
-        std::string message;
-        int64_t peer_id;
-        int64_t from_id;
+        std::string  message;
+        std::int64_t peer_id;
+        std::int64_t from_id;
     };
 }
 
