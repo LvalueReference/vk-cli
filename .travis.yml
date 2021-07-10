@@ -1,0 +1,5 @@
+language: cpp
+os: linux
+compiler:
+  - clang
+install: libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev
