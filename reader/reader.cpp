@@ -1,5 +1,5 @@
 #include "reader.hpp"
-#include <fmt/format.h>
+#include <fmt/core.h>
 
 [[noreturn]] void reader::chat_reader::run(){
     std::cout << "[ STARTED ]" << std::endl;

@@ -7,7 +7,7 @@
 namespace reader{
     class message_parser{
     private:
-        vk::api::vk_api _api;
+        vk::vk_api _api;
         simdjson::dom::element _json;
     public:
         simdjson::dom::element operator= (const simdjson::dom::element& json);

@@ -11,7 +11,7 @@ namespace reader{
     private:
         simdjson::dom::element _json;
         reader::reader_data _rdata;
-        vk::api::vk_api _api;
+        vk::vk_api _api;
         reader::message_parser _mp;
     public:
         simdjson::dom::element operator= (const simdjson::dom::element& json);
