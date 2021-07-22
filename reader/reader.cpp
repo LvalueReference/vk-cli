@@ -2,7 +2,7 @@
 #include <fmt/core.h>
 
 [[noreturn]] void reader::chat_reader::run(){
-    std::cout << "[ STARTED ]" << std::endl;
+    std::cout << "==========[ \033[1;32mSTARTED\033[0m ]==========" << std::endl;
 
     while (true){
         _json = _parser.parse(_lp.listen());
