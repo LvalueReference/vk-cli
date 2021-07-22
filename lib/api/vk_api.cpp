@@ -13,8 +13,7 @@ std::vector<vk::_param_type> vk::vk_api::params(std::vector<vk::_param_type> par
 }
 
 vk::vk_api::vk_api(){
-	simdjson::dom::parser parser;
-	simdjson::dom::element json = parser.load("../config/my_config.json");
+	auto json = _parser.load("../config/my_config.json");
 
     _conf = vk::vk_api_data{
             std::string(json["TOKEN"]),
@@ -25,9 +24,8 @@ vk::vk_api::vk_api(){
 }
 
 vk::longpoll_data vk::vk_api::get_lp_server() {
-	simdjson::dom::parser parser;
-    simdjson::dom::element json = parser.parse(vk::request(method("groups.getLongPollServer"),
-														   params({{"group_id", _conf.group}})));
+    auto json = _parser.parse(vk::request(method("groups.getLongPollServer"),
+										  params({{"group_id", _conf.group}})));
 
     return {
         std::string(json["response"]["server"]),
@@ -36,28 +34,25 @@ vk::longpoll_data vk::vk_api::get_lp_server() {
     };
 }
 
-std::string vk::vk_api::user_get(int user_ids) {
-	simdjson::dom::parser parser;
-	simdjson::dom::element json = parser.parse(vk::request(method("users.get"),
-														   params({{"user_ids", std::to_string(user_ids)}})));
+std::string vk::vk_api::user_get(std::int32_t user_ids) {
+	auto json = _parser.parse(vk::request(method("users.get"),
+										  params({{"user_ids", std::to_string(user_ids)}})));
 
     return fmt::format("{} {}", std::string(json["response"].at(0)["first_name"]),
                                 std::string(json["response"].at(0)["last_name"]));
 }
 
-std::string vk::vk_api::group_get(int group_ids) {
-	simdjson::dom::parser parser;
-	simdjson::dom::element json = parser.parse(vk::request(method("groups.getById"),
-														   params({{"group_ids", std::to_string(std::abs(group_ids))}})));
+std::string vk::vk_api::group_get(std::int32_t group_ids) {
+	auto json = _parser.parse(vk::request(method("groups.getById"),
+									      params({{"group_ids", std::to_string(std::abs(group_ids))}})));
 
     return std::string(json["response"].at(0)["name"]);
 }
 
-std::string vk::vk_api::get_chat_name(int peer_id) {
-	simdjson::dom::parser parser;
-	simdjson::dom::element json = parser.parse(vk::request(method("messages.getConversationsById"),
-														   params({{"peer_ids", std::to_string(peer_id)},
-																   {"group_id", _conf.group}})));
+std::string vk::vk_api::get_chat_name(std::int32_t peer_id) {
+	auto json = _parser.parse(vk::request(method("messages.getConversationsById"),
+										   params({{"peer_ids", std::to_string(peer_id)},
+												   {"group_id", _conf.group}})));
 
     return std::string(json["response"]["items"].get_array().at(0)["chat_settings"]["title"]);
 }
