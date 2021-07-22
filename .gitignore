@@ -34,5 +34,6 @@
 cmake-build-release
 cmake-build-debug
 .idea
+.vscode
 
 config/my_config.json
