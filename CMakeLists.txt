@@ -28,13 +28,13 @@ set(INCLUDE_DIRECTORIES .
                 lib/simdjson
                 reader
                 config)
-set(LINK_LIBRARIES curlpp fmt ${CURL_LIBRARIES})
+set(LINK_LIBRARIES curlpp fmt)
 
 find_package(CURL REQUIRED)
 
-file(COPY config/my_config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY config/config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 include_directories(${INCLUDE_DIRECTORIES})
 add_executable(vkreader ${SOURCES})
 
-target_link_libraries(vkreader ${LINK_LIBRARIES})
+target_link_libraries(vkreader ${LINK_LIBRARIES} ${CURL_LIBRARIES}) 
