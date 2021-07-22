@@ -25,13 +25,12 @@
      cd vk-cli
      ```
 4. Настройка конфиг-файла
-   - Перейти по директории `config/` и редактировать файл `config.json`
-     - Заполните конфиг данными, которые вы копировали из *пункта 1*
-     - В поле `API_V` нужно указать последнюю версию **VK Api**, узнать её можно [**здесь**](https://vk.com/dev/versions)
+  - Перейти по директории `config/` и редактировать файл `config.json`
+  - Заполните конфиг данными, которые вы копировали из *пункта 1*
+  - В поле `API_V` нужно указать последнюю версию **VK Api**, узнать её можно [**здесь**](https://vk.com/dev/versions)
 
 # Сборка
-1. Установка библиотек 
-   Для работы программы нам потребуется установить: **cmake**, **libcurl**, **libcurlpp**, **libfmt**
+1. Установка библиотек (**cmake**, **libcurl**, **libcurlpp**, **libfmt**)
    - С помощью пакетного менеджера вашего дистрибутива установить библиотеки. Рассмотрим 2 примера:
        1. Debian-based дистрибутивы: 
           ```commandline
@@ -44,17 +43,10 @@
           sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev 
           ```
 2. Сборка и запуск программы
-   - Создать директорию для cmake:
      ```commandline
      mkdir cmake-files
      cd cmake-files
-     ```
-   - Собрать:
-     ```commandline
      cmake ../
      make
-     ```
-   - Запустить
-     ```commandline
-     ./vkreader   
+     ./vkreader
      ```
