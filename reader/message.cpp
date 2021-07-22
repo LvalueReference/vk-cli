@@ -34,7 +34,7 @@ std::string reader::message::message_text(){
         res.append(" {fwd message}:\n");
 
         for (const auto& fwd : _mp.get_fwd()){
-            res.append(fmt::format("\t\t\t\033[0m┌[\033[32m{}\033[0m]\n\t\t\t└[message]> \033[36m{}{}\033[0m\n",
+            res.append(fmt::format("\t\t\t\033[0m┌[\033[1;32m{}\033[0m]\n\t\t\t└[message]> \033[1;36m{}{}\033[0m\n",
                                    _mp.get_fwd_from(fwd),
                                    _mp.get_fwd_attachments_types(fwd),
                                    _mp.get_fwd_text(fwd)));
@@ -51,11 +51,10 @@ std::string reader::message::from() {
 std::string reader::message::current_time() {
 	std::ostringstream out;
 
-	auto now = std::chrono::system_clock::now();
-	auto now_c = std::chrono::system_clock::to_time_t(now - std::chrono::hours(24));
-
-	out << std::put_time(std::localtime(&now_c), "%T");
-	return out.str();
+	auto now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now() - std::chrono::hours(24));
+    out << std::put_time(std::localtime(&now), "%T");
+	
+    return out.str();
 }
 
 std::string reader::message::chat_name() {
