@@ -31,9 +31,13 @@
 *.out
 *.app
 
+# CLion
 cmake-build-release
 cmake-build-debug
 .idea
+
+# Vs Code
 .vscode
 
+# Project files
 config/my_config.json
