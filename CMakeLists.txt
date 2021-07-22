@@ -20,6 +20,7 @@ set(SOURCES main.cpp
                 reader/message.cpp
                 reader/message_parser.hpp
                 reader/message_parser.cpp)
+
 set(INCLUDE_DIRECTORIES .
                 ${CURL_INCLUDE_DIR}
                 lib
@@ -28,6 +29,7 @@ set(INCLUDE_DIRECTORIES .
                 lib/simdjson
                 reader
                 config)
+                
 set(LINK_LIBRARIES curlpp fmt)
 
 find_package(CURL REQUIRED)
