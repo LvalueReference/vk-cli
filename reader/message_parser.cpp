@@ -2,7 +2,7 @@
 #include <fmt/format.h>
 
 simdjson::dom::element reader::message_parser::operator=(const simdjson::dom::element &json) {
-    _json = json;
+    return _json = json;
 }
 
 
