@@ -13,7 +13,7 @@ simdjson::dom::element reader::message::operator=(const simdjson::dom::element &
     };
 
     _mp = json;
-    _json = json;
+    return _json = json;
 }
 
 std::string reader::message::message_text(){
