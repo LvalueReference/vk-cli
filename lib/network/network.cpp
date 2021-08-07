@@ -1,8 +1,9 @@
 #include "network.hpp"
+#include "curlpp/cURLpp.hpp"
+#include "curlpp/Easy.hpp"
+#include "curlpp/Options.hpp"
 
 #include <sstream>
-#include <curlpp/Easy.hpp>
-#include <curlpp/Options.hpp>
 #include <fmt/format.h>
 
 static std::string gen_params(const std::vector<vk::_param_type>& params){
