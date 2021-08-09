@@ -1,11 +1,9 @@
 #include "message.hpp"
-#include <chrono>
 #include <ctime>
 #include <iomanip>
-#include <sys/time.h>
 #include <fmt/format.h>
 
-simdjson::dom::element reader::message::operator=(const simdjson::dom::element &json) {
+void reader::message::operator=(const simdjson::dom::element &json){
     _rdata = reader::reader_data{
         std::string(json["object"]["message"]["text"]),
         json["object"]["message"]["peer_id"],
@@ -13,7 +11,7 @@ simdjson::dom::element reader::message::operator=(const simdjson::dom::element &
     };
 
     _mp = json;
-    return _json = json;
+    _json = json;
 }
 
 std::string reader::message::message_text(){
@@ -44,17 +42,19 @@ std::string reader::message::message_text(){
     return res;
 }
 
-std::string reader::message::from() {
+std::string reader::message::from(){
     return (_rdata.from_id > 0 ? _api.user_get(_rdata.from_id) : _api.group_get(_rdata.from_id));
 }
 
-std::string reader::message::current_time() {
-	std::ostringstream out;
+std::string reader::message::current_time() const{
+	std::ostringstream stream;
 
-	auto now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now() - std::chrono::hours(24));
-    out << std::put_time(std::localtime(&now), "%T");
-	
-    return out.str();
+	auto t = std::time(nullptr);
+	auto tm = *std::localtime(&t);
+
+	stream << std::put_time(&tm, "%H:%M:%S");
+
+	return stream.str();
 }
 
 std::string reader::message::chat_name() {

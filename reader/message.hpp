@@ -14,12 +14,12 @@ namespace reader{
         vk::vk_api _api;
         reader::message_parser _mp;
     public:
-        simdjson::dom::element operator= (const simdjson::dom::element& json);
+        void operator= (const simdjson::dom::element& json);
 
         std::string message_text();
         std::string from();
         std::string chat_name();
-        std::string current_time();
+        std::string current_time() const;
     };
 }
 
