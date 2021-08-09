@@ -13,7 +13,7 @@ std::vector<vk::_param_type> vk::vk_api::params(std::vector<vk::_param_type> par
 }
 
 vk::vk_api::vk_api(){
-	auto json = _parser.load("../config/my_config.json");
+	auto json = _parser.load("../config/config.json");
 
     _conf = vk::vk_api_data{
             std::string(json["TOKEN"]),
