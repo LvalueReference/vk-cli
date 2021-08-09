@@ -5,7 +5,7 @@ std::string vk::vk_api::method(std::string_view meth) const {
     return fmt::format("https://api.vk.com/method/{}?", std::string(meth.data()));
 }
 
-std::vector<vk::_param_type> vk::vk_api::params(std::vector<vk::_param_type> parameters){
+std::vector<vk::_param_type> vk::vk_api::params(std::vector<vk::_param_type> parameters) const{
     parameters.push_back({"access_token", _conf.token});
     parameters.push_back({"v",            _conf.api_v});
 
@@ -13,17 +13,16 @@ std::vector<vk::_param_type> vk::vk_api::params(std::vector<vk::_param_type> par
 }
 
 vk::vk_api::vk_api(){
-	auto json = _parser.load("../config/config.json");
+	auto json = _parser.load("../config/my_config.json");
 
     _conf = vk::vk_api_data{
             std::string(json["TOKEN"]),
-            std::string(json["ADMIN"]),
             std::string(json["GROUP"]),
             std::string(json["API_V"])
     };
 }
 
-vk::longpoll_data vk::vk_api::get_lp_server() {
+vk::longpoll_data vk::vk_api::get_lp_server(){
     auto json = _parser.parse(vk::request(method("groups.getLongPollServer"),
 										  params({{"group_id", _conf.group}})));
 
