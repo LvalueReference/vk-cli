@@ -1,7 +1,7 @@
 #include "reader.hpp"
 #include <fmt/core.h>
 
-[[noreturn]] void reader::chat_reader::run(){
+void reader::chat_reader::run(){
     std::cout << "==========[ \033[1;32mSTARTED\033[0m ]==========" << std::endl;
 
     while (true){

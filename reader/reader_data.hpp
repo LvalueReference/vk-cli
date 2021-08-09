@@ -1,6 +1,9 @@
 #ifndef READER_DATA_HPP
 #define READER_DATA_HPP
 
+#include <string>
+#include <cstdint>
+
 namespace reader{
     struct reader_data{
         std::string  message;

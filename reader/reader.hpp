@@ -16,7 +16,7 @@ namespace reader{
         simdjson::dom::element _json;
         simdjson::dom::parser _parser;
     public:
-        [[noreturn]] void run();
+        void run();
     };
 }
 
