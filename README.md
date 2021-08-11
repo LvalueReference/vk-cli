@@ -12,11 +12,11 @@
    - Добавить бота в вашу беседу с помощью кнопки, которая появилась на главной странице вашей группы  
 3. Клонирование репозитория
    - В нужной вам директории клонируйте репозиторий с помощью команды
-     ```commandline
+     ```shell
      git clone https://github.com/LvalueReference/vk-cli.git
      ```
    - Перейти в директорию с помощью команды
-     ```commandline
+     ```shell
      cd vk-cli
      ```
 4. Настройка конфиг-файла
@@ -27,21 +27,27 @@
 # Установка библиотек
 - Windows:
     - Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
-    - установить библиотеки: **curlpp**, **fmt** командой **vcpkg install**
+    - установить библиотеки: `curlpp`, `fmt` командой **vcpkg install**
 - Debian-based дистрибутивы:
-  ```
+  ```shell
   sudo apt install cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev
   ```
 - Arch-based дистрибутивы:
+  ```shell
+  sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev
   ```
-  sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev 
-  ```
-
 # Сборка
-```
+1. Windows
+```shell
 mkdir build
 cd build
-cmake ../
+cmake .. -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg.cmake
 make
+vkreader.exe
+```
+2. Linux
+```shell
+mkdir build && cd build
+cmake .. && make
 ./vkreader
 ```
