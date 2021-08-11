@@ -6,16 +6,16 @@
 #include <sstream>
 #include <fmt/format.h>
 
-static std::string gen_params(const std::vector<vk::_param_type>& params){
+static std::string gen_params(const std::vector<vk::_param_type> &params){
     std::string res;
 
-    for (const auto& [key, value] : params)
+    for (const auto&[key, value] : params)
         res.append(fmt::format("{}={}&", key, value));
 
     return res;
 }
 
-std::string vk::request(std::string_view url, const std::vector<vk::_param_type>& parameters){
+std::string vk::request(std::string_view url, const std::vector<vk::_param_type> &parameters){
     std::stringstream res;
     curlpp::Easy curl;
 

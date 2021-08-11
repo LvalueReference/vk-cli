@@ -6,13 +6,13 @@
 #include "apis_data.hpp"
 
 namespace vk{
-	class longpoll_api{
-	private:
-		vk::vk_api _api;
-		vk::longpoll_data _conf;
-	public:
-		std::string listen();
-	};
+    class longpoll_api{
+    private:
+        vk::vk_api _api;
+        vk::longpoll_data _conf;
+    public:
+        std::string listen();
+    };
 }
 
 #endif //LONGPOLL_API

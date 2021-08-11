@@ -6,8 +6,8 @@ int main(){
     setlocale(LC_ALL, "ru_RU.UTF-8");
 #endif
 
-	reader::chat_reader reader;
-	reader.run();
+    reader::chat_reader reader;
+    reader.run();
 
     return EXIT_SUCCESS;
 }

@@ -6,7 +6,7 @@
 
 namespace reader{
     struct reader_data{
-        std::string  message;
+        std::string message;
         std::int64_t peer_id;
         std::int64_t from_id;
     };
