@@ -1,7 +1,7 @@
 # vk-cli
 Программа для вывода сообщений из чата вк вам в консоль, которая полностью написана на **C++**
 # Подготовка
-1. Создать группу вк и скопировать из неё данные для работы с **VK API**
+ Создать группу вк и скопировать из неё данные для работы с **VK API**
     - Перейти по [**этой**](https://vk.com/groups?w=groups_create) ссылке и создать группу вк
     - Далее зайти в *управление* группой и во вкладке **настройки** под полем для ввода адреса будет текст "*Номер сообщества — clubXXXXXXXXX.*"
       Нас интересуют 9 цифр после "club" и до точки. Скопируйте эти цифры
@@ -24,24 +24,24 @@
   - Заполните конфиг данными, которые вы копировали из *пункта 1*
   - В поле `API_V` нужно указать последнюю версию **VK Api**, узнать её можно [**здесь**](https://vk.com/dev/versions)
 
+# Установка библиотек
+- Windows:
+    - Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
+    - установить библиотеки: **curlpp**, **fmt** командой **vcpkg install**
+- Debian-based дистрибутивы:
+  ```
+  sudo apt install cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev
+  ```
+- Arch-based дистрибутивы:
+  ```
+  sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev 
+  ```
+
 # Сборка
-1. Установка библиотек (**cmake**, **libcurl**, **libcurlpp**, **libfmt**)
-   - С помощью пакетного менеджера вашего дистрибутива установить библиотеки. Рассмотрим 2 примера:
-       1. Debian-based дистрибутивы: 
-          ```commandline
-          sudo apt update
-          sudo apt install cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev --yes
-          ```
-       2. Arch-based дистрибутивы:
-          ```commandline
-          sudo pacman -Syu
-          sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev 
-          ```
-2. Сборка и запуск программы
-     ```commandline
-     mkdir cmake-files
-     cd cmake-files
-     cmake ../
-     make
-     ./vkreader
-     ```
+```
+mkdir build
+cd build
+cmake ../
+make
+./vkreader
+```
