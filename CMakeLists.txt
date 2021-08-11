@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION ${CMAKE_VERSION})
 project(vkreader)
 
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
+        CACHE STRING "Vcpkg toolchain file")
+
+
 set(CMAKE_CXX_STANDARD 17)
 set(CURL_LIBRARY "-lcurl -lcurlpp")
 
@@ -23,19 +27,31 @@ set(SOURCES main.cpp
             reader/message_parser.cpp)
 
 set(INCLUDE_DIRECTORIES .
-            ${CURL_INCLUDE_DIR}
             lib
             lib/api
             lib/network
             lib/simdjson
             reader
             config)
-                
-set(LINK_LIBRARIES fmt curlpp curl)
 
 file(COPY config/config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-find_package(CURL REQUIRED)
+if(WIN32)
+    set(LINK_LIBRARIES unofficial::curlpp::curlpp fmt::fmt)
+
+    set(CURLPP_PACKAGE unofficial-curlpp)
+    set(FMT_PACKAGE fmt)
+else()
+    set(LINK_LIBRARIES fmt curlpp)
+
+    set(CURLPP_PACKAGE curlpp)
+    set(FMT_PACKAGE fmt)
+endif()
+
+find_package(${CURLPP_PACKAGE} CONFIG REQUIRED)
+find_package(${FMT_PACKAGE} CONFIG REQUIRED)
+
 include_directories(${INCLUDE_DIRECTORIES})
 add_executable(vkreader ${SOURCES})
-target_link_libraries(vkreader ${LINK_LIBRARIES})
+
+target_link_libraries(vkreader PRIVATE ${LINK_LIBRARIES})
