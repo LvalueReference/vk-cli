@@ -6,7 +6,6 @@
 namespace vk{
 	struct vk_api_data {
 		std::string token;
-		std::string admin;
 		std::string group;
 		std::string api_v;
 	};
