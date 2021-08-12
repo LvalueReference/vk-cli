@@ -1,9 +1,9 @@
 # vk-cli
 Программа для вывода сообщений из чата вк вам в консоль, которая полностью написана на **C++**
 # Подготовка
- Создать группу вк и скопировать из неё данные для работы с **VK API**
+1. Создать группу вк и скопировать из неё данные для работы с **VK API**
     - Перейти по [**этой**](https://vk.com/groups?w=groups_create) ссылке и создать группу вк
-    - Далее зайти в *управление* группой и во вкладке **настройки** под полем для ввода адреса будет текст "*Номер сообщества — clubXXXXXXXXX.*"
+    - Далее зайти в *управление* группой и во вкладке **настройки** под полем для ввода адреса будет текст "*Номер сообщества — **clubXXXXXXXXX.**"
       Нас интересуют 9 цифр после "club" и до точки. Скопируйте эти цифры
     - Перейти во вкладку **Работа с API** и создать новый *ключ доступа* со всеми правами. Скопируйте этот ключ
 2. Добавить бота в группу
@@ -12,11 +12,11 @@
    - Добавить бота в вашу беседу с помощью кнопки, которая появилась на главной странице вашей группы  
 3. Клонирование репозитория
    - В нужной вам директории клонируйте репозиторий с помощью команды
-     ```commandline
+     ```shell
      git clone https://github.com/LvalueReference/vk-cli.git
      ```
    - Перейти в директорию с помощью команды
-     ```commandline
+     ```shell
      cd vk-cli
      ```
 4. Настройка конфиг-файла
@@ -27,21 +27,30 @@
 # Установка библиотек
 - Windows:
     - Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
-    - установить библиотеки: **curlpp**, **fmt** командой **vcpkg install**
+    - установить библиотеки: `curlpp`, `fmt` командой **vcpkg install**
+    
 - Debian-based дистрибутивы:
-  ```
+  ```shell
   sudo apt install cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev
   ```
+  
 - Arch-based дистрибутивы:
-  ```
+  ```shell
   sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev 
   ```
 
 # Сборка
-```
+1. Windows
+```shell
 mkdir build
 cd build
-cmake ../
+cmake .. -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg.cmake
 make
+vkreader.exe
+```
+2. Linux
+```shell
+mkdir build && cd build
+cmake .. && make
 ./vkreader
 ```
