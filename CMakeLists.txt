@@ -23,6 +23,7 @@ set(SOURCES main.cpp
             reader/message_parser.cpp)
 
 set(INCLUDE_DIRECTORIES .
+            ${CURL_INCLUDE_DIR}
             lib
             lib/api
             lib/network
@@ -35,19 +36,19 @@ file(COPY config/config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 if (WIN32)
     set(LINK_LIBRARIES unofficial::curlpp::curlpp fmt::fmt)
 
-    set(CURLPP_PACKAGE unofficial-curlpp)
+    set(CURL_PACKAGE unofficial-curlpp)
     set(FMT_PACKAGE fmt)
 else ()
     set(LINK_LIBRARIES fmt curlpp)
 
-    set(CURLPP_PACKAGE curlpp)
+    set(CURL_PACKAGE CURL)
     set(FMT_PACKAGE fmt)
 endif ()
 
-find_package(${CURLPP_PACKAGE} CONFIG REQUIRED)
+find_package(${CURL_PACKAGE} REQUIRED)
 find_package(${FMT_PACKAGE} CONFIG REQUIRED)
 
 include_directories(${INCLUDE_DIRECTORIES})
 add_executable(vkreader ${SOURCES})
 
-target_link_libraries(vkreader PRIVATE ${LINK_LIBRARIES})
+target_link_libraries(vkreader ${LINK_LIBRARIES} ${CURL_LIBRARIES})
