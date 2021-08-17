@@ -16,9 +16,9 @@ namespace reader{
     public:
         void operator=(const simdjson::dom::element &json);
 
-        std::string message_text();
-        std::string from();
-        std::string chat_name();
+        std::string message_text() const;
+        std::string from() const;
+        std::string chat_name() const;
         std::string current_time() const;
     };
 }
