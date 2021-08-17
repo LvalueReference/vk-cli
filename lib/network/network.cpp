@@ -5,7 +5,7 @@
 #include <sstream>
 #include <fmt/format.h>
 
-static std::string gen_params(const std::vector<vk::_param_type>& params){
+static std::string gen_params(const vk::param_type& params){
     std::string res;
 
     for (const auto& [key, value] : params)
@@ -14,7 +14,7 @@ static std::string gen_params(const std::vector<vk::_param_type>& params){
     return res;
 }
 
-std::string vk::request(std::string_view url, const std::vector<vk::_param_type>& parameters){
+std::string vk::request(std::string_view url, const vk::param_type& parameters){
     std::stringstream res;
     curlpp::Easy curl;
 
