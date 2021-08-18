@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION ${CMAKE_VERSION})
 project(vkreader)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CURL_LIBRARY "-lcurl -lcurlpp")
 
 set(SOURCES main.cpp
             lib/network/network.hpp
@@ -29,26 +28,27 @@ set(INCLUDE_DIRECTORIES .
             lib/network
             lib/simdjson
             reader
-            config)
+            config
+            modules)
 
 file(COPY config/config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 if (WIN32)
     set(LINK_LIBRARIES unofficial::curlpp::curlpp fmt::fmt)
 
-    set(CURL_PACKAGE unofficial-curlpp)
-    set(FMT_PACKAGE fmt)
+    find_package(unofficial-curlpp REQUIRED)
+    find_package(fmt CONFIG REQUIRED)
 else ()
-    set(LINK_LIBRARIES fmt curlpp)
-
-    set(CURL_PACKAGE CURL)
-    set(FMT_PACKAGE fmt)
+    set(LINK_LIBRARIES fmt curlpp curl)
 endif ()
 
-find_package(${CURL_PACKAGE} REQUIRED)
-find_package(${FMT_PACKAGE} CONFIG REQUIRED)
+add_subdirectory(modules)
 
 include_directories(${INCLUDE_DIRECTORIES})
 add_executable(vkreader ${SOURCES})
 
 target_link_libraries(vkreader ${LINK_LIBRARIES} ${CURL_LIBRARIES})
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+target_include_directories(vkreader PRIVATE modules/fmt/include)
+target_include_directories(vkreader PRIVATE modules/curlpp/include)
