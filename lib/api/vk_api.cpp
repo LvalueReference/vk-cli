@@ -5,7 +5,7 @@ std::string vk::vk_api::method(std::string_view meth) const{
     return fmt::format("https://api.vk.com/method/{}?", std::string(meth.data()));
 }
 
-std::vector<vk::_param_type> vk::vk_api::params(std::vector<vk::_param_type> parameters) const{
+vk::param_type vk::vk_api::params(vk::param_type parameters) const{
     parameters.push_back({"access_token", _conf.token});
     parameters.push_back({"v", _conf.api_v});
 
