@@ -1,0 +1,6 @@
+[submodule "modules/fmt"]
+	path = modules/fmt
+	url = https://github.com/fmtlib/fmt.git
+[submodule "modules/curlpp"]
+	path = modules/curlpp
+	url = https://github.com/jpbarrette/curlpp.git
