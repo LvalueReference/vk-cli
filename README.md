@@ -27,23 +27,22 @@
 # Установка библиотек
 - Windows:
     - Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
-    - установить библиотеки: `curlpp`, `fmt` командой **vcpkg install**
+    - установить библиотеку `curl` командой **vcpkg install curl**
     
 - Debian-based дистрибутивы:
   ```shell
-  sudo apt install cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev
+  sudo apt install cmake libcurl4 libcurl4-openssl-dev
   ```
   
 - Arch-based дистрибутивы:
   ```shell
-  sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev libcurlpp-dev libfmt-dev 
+  sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev
   ```
 
 # Сборка
 1. Windows
 ```shell
-mkdir build
-cd build
+mkdir build && cd build
 cmake .. -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg.cmake
 make
 vkreader.exe
