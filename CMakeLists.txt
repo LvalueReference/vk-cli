@@ -33,22 +33,12 @@ set(INCLUDE_DIRECTORIES .
 
 file(COPY config/config.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-if (WIN32)
-    set(LINK_LIBRARIES unofficial::curlpp::curlpp fmt::fmt)
-
-    find_package(unofficial-curlpp REQUIRED)
-    find_package(fmt CONFIG REQUIRED)
-else ()
-    set(LINK_LIBRARIES fmt curlpp curl)
-endif ()
-
 add_subdirectory(modules)
 
 include_directories(${INCLUDE_DIRECTORIES})
 add_executable(vkreader ${SOURCES})
 
-target_link_libraries(vkreader ${LINK_LIBRARIES} ${CURL_LIBRARIES})
+target_link_libraries(vkreader curlpp fmt ${CURL_LIBRARIES})
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
 target_include_directories(vkreader PRIVATE modules/fmt/include)
 target_include_directories(vkreader PRIVATE modules/curlpp/include)
