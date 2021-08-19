@@ -4,4 +4,4 @@ compiler:
   - gcc
   - clang
 dist: apt
-install: apt install libcurl4-openssl-dev
+install: sudo apt install libcurl4-openssl-dev
