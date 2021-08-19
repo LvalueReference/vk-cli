@@ -2,16 +2,5 @@ languages: cpp
 compiler:
   - gcc
   - clang
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - make
-            - cmake
-            - gcc
-            - libcurl4
-            - libcurl4-openssl-dev
+dist: apt
+install: libcurl4-openssl-dev
