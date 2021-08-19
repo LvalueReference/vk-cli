@@ -9,6 +9,7 @@ namespace reader{
     private:
         vk::vk_api _api;
         simdjson::dom::element _json;
+
     public:
         void operator=(const simdjson::dom::element& json);
 
