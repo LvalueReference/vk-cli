@@ -1,4 +1,5 @@
 [![Build Status](https://www.travis-ci.com/LvalueReference/vk-cli.svg?branch=master)](https://www.travis-ci.com/LvalueReference/vk-cli)
+[![CodeFactor](https://www.codefactor.io/repository/github/lvaluereference/vk-cli/badge)](https://www.codefactor.io/repository/github/lvaluereference/vk-cli)
 
 # vk-cli
 Программа для вывода сообщений из чата вк вам в консоль, которая полностью написана на **C++**
