@@ -3,5 +3,11 @@ os: linux
 compiler:
   - gcc
   - clang
-dist: apt
-install: sudo apt install libcurl4-openssl-dev
+install:
+  - sudo apt install libcurl4 libcurl4-openssl-dev
+
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
