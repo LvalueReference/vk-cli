@@ -1,5 +1,5 @@
 languages: cpp
 install: libcurl4 libcurl4-openssl-dev
 compiler:
-  - clang
   - gcc
+  - clang
