@@ -13,7 +13,7 @@
 3. Клонирование репозитория
    - В нужной вам директории клонируйте репозиторий с помощью команды
      ```shell
-     git clone https://github.com/LvalueReference/vk-cli.git
+     git clone --recursive https://github.com/LvalueReference/vk-cli.git
      ```
    - Перейти в директорию с помощью команды
      ```shell
