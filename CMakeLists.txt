@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION ${CMAKE_VERSION})
-project(vkreader DESCRIPTION "Vk char reader" LANGUAGES CXX)
+project(vkreader DESCRIPTION "Vk chat reader" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
