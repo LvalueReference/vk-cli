@@ -1,7 +1,7 @@
 #ifndef MESSAGE_HPP
 #define MESSAGE_HPP
 
-#include "simdjson/simdjson.h"
+#include "simdjson.h"
 #include "reader_data.hpp"
 #include "lib/api/vk_api.hpp"
 #include "message_parser.hpp"

@@ -2,7 +2,7 @@
 #define VK_API_HPP
 
 #include "lib/network/network.hpp"
-#include "lib/simdjson/simdjson.h"
+#include "simdjson.h"
 #include "apis_data.hpp"
 
 #include <string>

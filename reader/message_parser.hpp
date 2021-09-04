@@ -2,7 +2,7 @@
 #define MESSAGE_PARSER_HPP
 
 #include "lib/api/vk_api.hpp"
-#include "simdjson/simdjson.h"
+#include "simdjson.h"
 
 namespace reader{
     class message_parser{

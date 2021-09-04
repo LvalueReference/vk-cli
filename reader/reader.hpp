@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "simdjson/simdjson.h"
+#include "simdjson.h"
 #include "lib/api/longpoll_api.hpp"
 #include "message.hpp"
 
