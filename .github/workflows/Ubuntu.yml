@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: submodule
-      run: git submodule init
+      run: git submodule update --init --recursive
     
     - name: libs
       run: sudo apt update && sudo apt install libcurl4 libcurl4-openssl-dev
