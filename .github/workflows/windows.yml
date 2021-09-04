@@ -28,4 +28,4 @@ jobs:
       run: git clone https://github.com/microsoft/vcpkg; cd vcpkg; .\bootstrap-vcpkg.bat; .\vcpkg.exe install curl; .\vcpkg.exe integrate install
       
     - name: build
-      run: mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake; cmake --build .
+      run: mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=D:/a/vk-cli/vk-cli/vcpkg/scripts/buildsystems/vcpkg.cmake; cmake --build .
