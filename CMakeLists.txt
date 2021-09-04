@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION ${CMAKE_VERSION})
 project(vkreader DESCRIPTION "Vk chat reader" LANGUAGES CXX)
 
+if(WIN32)
+    message(STATUS "CMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Release)
 
