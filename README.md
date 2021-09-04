@@ -1,4 +1,5 @@
 [![Ubuntu](https://github.com/LvalueReference/vk-cli/actions/workflows/Ubuntu.yml/badge.svg)](https://github.com/LvalueReference/vk-cli/actions/workflows/Ubuntu.yml)
+[![MacOS](https://github.com/LvalueReference/vk-cli/actions/workflows/macos.yml/badge.svg)](https://github.com/LvalueReference/vk-cli/actions/workflows/macos.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lvaluereference/vk-cli/badge)](https://www.codefactor.io/repository/github/lvaluereference/vk-cli)
 
 # vk-cli
@@ -41,18 +42,19 @@
   ```shell
   sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev
   ```
+- MacOS:
+  ```shell
+  brew install curl
+  ```
 
 # Сборка
 1. Windows
 ```shell
-mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg.cmake
-make
+mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg.cmake; cmake --build .
 vkreader.exe
 ```
-2. Linux
+2. Linux / MacOS
 ```shell
-mkdir build && cd build
-cmake .. && make
+mkdir build && cd build && cmake .. && cmake --build .
 ./vkreader
 ```
