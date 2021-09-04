@@ -2,12 +2,11 @@ cmake_minimum_required(VERSION ${CMAKE_VERSION})
 project(vkreader DESCRIPTION "Vk chat reader" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Release)
 
 set(SOURCES main.cpp
             lib/network/network.hpp
             lib/network/network.cpp
-            lib/simdjson/simdjson.cpp
-            lib/simdjson/simdjson.h
             lib/api/vk_api.hpp
             lib/api/vk_api.cpp
             lib/api/longpoll_api.hpp
@@ -22,11 +21,9 @@ set(SOURCES main.cpp
             reader/message_parser.cpp)
 
 set(INCLUDE_DIRECTORIES .
-            ${CURL_INCLUDE_DIR}
             lib
             lib/api
             lib/network
-            lib/simdjson
             reader
             config
             modules)
@@ -38,7 +35,8 @@ add_subdirectory(modules)
 include_directories(${INCLUDE_DIRECTORIES})
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} curlpp fmt ${CURL_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} curlpp fmt simdjson)
 
 target_include_directories(${PROJECT_NAME} PRIVATE modules/fmt/include)
 target_include_directories(${PROJECT_NAME} PRIVATE modules/curlpp/include)
+target_include_directories(${PROJECT_NAME} PRIVATE modules/simdjson/include)
