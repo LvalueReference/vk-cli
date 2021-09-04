@@ -21,6 +21,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    - name: submodule
+      run: git submodule --init --update
+    
     - name: libs
       run: sudo apt update && sudo apt install libcurl4 libcurl4-openssl-dev
       
