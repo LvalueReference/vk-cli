@@ -32,12 +32,12 @@
 *.app
 
 # CLion
-cmake-build-release
-cmake-build-debug
+cmake-build-*
 .idea
 
 # Vs Code
 .vscode
+build
 
 # Project files
 config/my_config.json
