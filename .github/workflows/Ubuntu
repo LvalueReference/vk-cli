@@ -1,0 +1,19 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: install libs
+      run: sudo apt update && sudo apt install libcurl4 libcurl4-openssl-dev build-essentials
+    - name: cmake
+      run: mkdir build && cd build && cmake .. && cmake --build .
