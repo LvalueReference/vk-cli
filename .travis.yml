@@ -1,12 +1,13 @@
-language: cpp
-os: linux
-dist: focal
+language: c++
+os:
+  - linux
+dist: xenial
 
 compiler:
   - gcc
   - clang
 install:
-  - sudo apt install libcurl4 libcurl4-openssl-dev --fix-missing
+  - sudo apt install libcurl4 libcurl4-openssl-dev
 
 script:
   - cmake --version
