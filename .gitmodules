@@ -4,3 +4,6 @@
 [submodule "modules/curlpp"]
 	path = modules/curlpp
 	url = https://github.com/jpbarrette/curlpp.git
+[submodule "modules/simdjson"]
+	path = modules/simdjson
+	url = https://github.com/simdjson/simdjson.git
