@@ -1,4 +1,4 @@
-[![Build Status](https://www.travis-ci.com/LvalueReference/vk-cli.svg?branch=master)](https://www.travis-ci.com/LvalueReference/vk-cli)
+[![Ubuntu](https://github.com/LvalueReference/vk-cli/actions/workflows/Ubuntu.yml/badge.svg)](https://github.com/LvalueReference/vk-cli/actions/workflows/Ubuntu.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lvaluereference/vk-cli/badge)](https://www.codefactor.io/repository/github/lvaluereference/vk-cli)
 
 # vk-cli
