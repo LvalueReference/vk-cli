@@ -20,9 +20,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: submodule
+      run: git submodule update --init --recursive
 
     - name: install vcpkg
-      run: git clone https://github.com/microsoft/vcpkg; .\vcpkg\bootstrap-vcpkg.bat; .\vcpkg.exe install curl; .\vcpkg.exe integrate install
+      run: git clone https://github.com/microsoft/vcpkg; cd vcpkg; .\bootstrap-vcpkg.bat; .\vcpkg.exe install curl; .\vcpkg.exe integrate install
       
     - name: build
       run: mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=..\vcpkg\scripts\buildsystems\vcpkg.cmake; cmake --build .
