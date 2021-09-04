@@ -6,20 +6,10 @@ compiler:
   - gcc
   - clang
 install:
-  - sudo apt install libcurl4 libcurl4-openssl-dev -y
-  - sudo apt remove cmake -y
+  - sudo apt install libcurl4 libcurl4-openssl-dev cmake -y
 
 script:
-  - wget https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-linux-x86_64.sh
-  - sudo cp ./cmake-3.21.2-linux-x86_64.sh /opt/
-  - chmod +x /opt/cmake-3.21.2-linux-x86_64.sh
-  - cd /opt/
-  - sudo bash ./cmake-3.21.2-linux-x86_64.sh
-  - y
-  - y
-  - sudo ln -s /opt/cmake-3.21.2-linux-x86_64/bin/* /usr/local/bin
   - cmake --version
-  - cd ~
   - mkdir build
   - cd build
   - cmake ..
