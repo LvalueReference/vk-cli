@@ -10,8 +10,8 @@
 namespace reader{
     class chat_reader{
     private:
-        vk::longpoll_api _lp;
-        reader::message _msg;
+        vk::longpoll_api _longpoll;
+        reader::message _message;
 
         simdjson::dom::element _json;
         simdjson::dom::parser _parser;

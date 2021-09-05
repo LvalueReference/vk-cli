@@ -9,7 +9,7 @@ namespace vk{
     class longpoll_api{
     private:
         vk::vk_api _api;
-        vk::longpoll_data _conf;
+        vk::longpoll_data _config;
     public:
         std::string listen();
     };

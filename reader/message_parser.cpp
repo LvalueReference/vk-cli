@@ -64,23 +64,23 @@ std::string reader::message_parser::get_attachment_type(const simdjson::dom::ele
 std::string reader::message_parser::get_reply_attachments_types() const{
     if (!has_attachments(get_reply())) return "";
 
-    std::string res;
+    std::string result;
 
     for (const auto& att : get_attachments(get_reply()))
-        res.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
+        result.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
 
-    return res;
+    return result;
 }
 
 std::string reader::message_parser::get_fwd_attachments_types(const simdjson::dom::element& fwd) const{
     if (!has_attachments(fwd)) return "";
 
-    std::string res;
+    std::string result;
 
     for (const auto& att : get_attachments(fwd))
-        res.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
+        result.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
 
-    return res;
+    return result;
 }
 
 std::string reader::message_parser::get_fwd_text(const simdjson::dom::element& fwd) const{

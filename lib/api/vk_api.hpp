@@ -11,7 +11,7 @@
 namespace vk{
     class vk_api{
     private:
-        vk::vk_api_data _conf;
+        vk::vk_api_data _config;
 
         std::string method(std::string_view meth) const;
         vk::param_type params(vk::param_type parameters) const;

@@ -10,9 +10,9 @@ namespace reader{
     class message{
     private:
         simdjson::dom::element _json;
-        reader::reader_data _rdata;
+        reader::reader_data _reader_data;
         vk::vk_api _api;
-        reader::message_parser _mp;
+        reader::message_parser _message_parser;
     public:
         void operator=(const simdjson::dom::element &json);
 

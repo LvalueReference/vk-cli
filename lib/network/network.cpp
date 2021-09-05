@@ -6,21 +6,21 @@
 #include <fmt/format.h>
 
 static std::string gen_params(const vk::param_type& params){
-    std::string res;
+    std::string result;
 
     for (const auto& [key, value] : params)
-        res.append(fmt::format("{}={}&", key, value));
+        result.append(fmt::format("{}={}&", key, value));
 
-    return res;
+    return result;
 }
 
 std::string vk::request(std::string_view url, const vk::param_type& parameters){
-    std::stringstream res;
+    std::stringstream result;
     curlpp::Easy curl;
 
-    curl.setOpt(curlpp::Options::Url(std::string(url.data()) + gen_params(parameters)));
-    curl.setOpt(curlpp::Options::WriteStream(&res));
+    curl.setOpt(curlpp::Options::Url(std::string(url.data(), url.size()) + gen_params(parameters)));
+    curl.setOpt(curlpp::Options::WriteStream(&result));
     curl.perform();
 
-    return res.str();
+    return result.str();
 }
