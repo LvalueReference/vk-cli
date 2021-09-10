@@ -16,8 +16,6 @@ set(SOURCES main.cpp
             lib/api/longpoll_api.hpp
             lib/api/longpoll_api.cpp
             lib/api/apis_data.hpp
-            reader/reader.hpp
-            reader/reader.cpp
             reader/reader_data.hpp
             reader/message.hpp
             reader/message.cpp
