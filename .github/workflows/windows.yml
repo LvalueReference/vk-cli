@@ -19,13 +19,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: submodule
-      run: git submodule update --init --recursive
+      - uses: actions/checkout@v2
 
-    - name: install vcpkg
-      run: git clone https://github.com/microsoft/vcpkg; cd vcpkg; .\bootstrap-vcpkg.bat; .\vcpkg.exe install curl; .\vcpkg.exe integrate install
-      
-    - name: build
-      run: mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=D:/a/vk-cli/vk-cli/vcpkg/scripts/buildsystems/vcpkg.cmake; cmake --build .
+      - name: submodule
+        run: git submodule update --init --recursive
+
+      - name: install vcpkg
+        run: git clone https://github.com/microsoft/vcpkg; cd vcpkg; .\bootstrap-vcpkg.bat; .\vcpkg.exe install curl; .\vcpkg.exe integrate install
+
+      - name: build
+        run: mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=D:/a/vk-cli/vk-cli/vcpkg/scripts/buildsystems/vcpkg.cmake; cmake --build .

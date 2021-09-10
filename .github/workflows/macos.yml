@@ -19,14 +19,14 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: update submodules
-      run: git submodule update --init --recursive
- 
-    - name: install libs
-      run: brew install curl
-      
-    - name: build
-      run: mkdir build && cd build && cmake .. && cmake --build .
+      - uses: actions/checkout@v2
+
+      - name: update submodules
+        run: git submodule update --init --recursive
+
+      - name: install libs
+        run: brew install curl
+
+      - name: build
+        run: mkdir build && cd build && cmake .. && cmake --build .
       

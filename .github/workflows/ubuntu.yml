@@ -19,13 +19,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: submodule
-      run: git submodule update --init --recursive
-    
-    - name: libs
-      run: sudo apt update && sudo apt install libcurl4 libcurl4-openssl-dev
-      
-    - name: build
-      run: mkdir build && cd build && cmake .. && make
+      - uses: actions/checkout@v2
+
+      - name: submodule
+        run: git submodule update --init --recursive
+
+      - name: libs
+        run: sudo apt update && sudo apt install libcurl4 libcurl4-openssl-dev
+
+      - name: build
+        run: mkdir build && cd build && cmake .. && make
