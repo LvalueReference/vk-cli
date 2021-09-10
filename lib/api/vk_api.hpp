@@ -13,8 +13,8 @@ namespace vk{
     private:
         vk::vk_api_data _config;
 
-        std::string method(std::string_view meth) const;
-        vk::param_type params(vk::param_type parameters) const;
+        std::string method(std::string_view method_name) const;
+        vk::param_type params(vk::param_type parameter_pack) const;
     public:
         vk_api();
 

@@ -1,15 +1,15 @@
 #include "lib/api/vk_api.hpp"
 #include "fmt/format.h"
 
-std::string vk::vk_api::method(std::string_view meth) const{
-    return fmt::format("https://api.vk.com/method/{}?", std::string(meth.data(), meth.size()));
+std::string vk::vk_api::method(std::string_view method_name) const{
+    return fmt::format("https://api.vk.com/method/{}?", std::string(method_name.data(), method_name.size()));
 }
 
-vk::param_type vk::vk_api::params(vk::param_type parameters) const{
-    parameters.push_back({"access_token", _config.token});
-    parameters.push_back({"v", _config.api_v});
+vk::param_type vk::vk_api::params(vk::param_type parameter_pack) const{
+    parameter_pack.push_back({"access_token", _config.token});
+    parameter_pack.push_back({"v", _config.api_v});
 
-    return parameters;
+    return parameter_pack;
 }
 
 vk::vk_api::vk_api(){
