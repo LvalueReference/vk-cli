@@ -31,7 +31,12 @@
 # Установка библиотек
 - Windows:
     - Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
-    - установить библиотеку `curl` командой **vcpkg install curl**
+    - ```shell
+      vcpkg install curl
+      ```
+    - ```shell
+      vcpkg integrate install
+      ```
     
 - Debian-based дистрибутивы:
   ```shell
