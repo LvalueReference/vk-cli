@@ -7,7 +7,6 @@
 
 int main(){
 #ifdef _WIN32
-    #include <locale>
     setlocale(LC_ALL, "ru_RU.UTF-8");
 #endif
 
