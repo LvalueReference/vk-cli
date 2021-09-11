@@ -33,7 +33,7 @@
 - Windows:
     - Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
     - ```shell
-      vcpkg install curl
+      vcpkg install curl[openssl]:x64-windows
       ```
     - ```shell
       vcpkg integrate install
