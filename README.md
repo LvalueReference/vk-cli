@@ -1,5 +1,6 @@
 [![Ubuntu](https://github.com/LvalueReference/vk-cli/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/LvalueReference/vk-cli/actions/workflows/ubuntu.yml)
 [![MacOS](https://github.com/LvalueReference/vk-cli/actions/workflows/macos.yml/badge.svg)](https://github.com/LvalueReference/vk-cli/actions/workflows/macos.yml)
+[![Windows](https://github.com/LvalueReference/vk-cli/actions/workflows/windows.yml/badge.svg)](https://github.com/LvalueReference/vk-cli/actions/workflows/windows.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/lvaluereference/vk-cli/badge)](https://www.codefactor.io/repository/github/lvaluereference/vk-cli)
 
 # vk-cli
