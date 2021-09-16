@@ -1,9 +1,23 @@
 #include "message.hpp"
-#include <ctime>
-#include <iomanip>
+
+#include "reader/color.hpp"
 #include "fmt/format.h"
 
-void reader::message::operator=(const simdjson::dom::element& json){
+using reader::color;
+
+std::string colorize_fwd_template(){
+    std::string_view fwd_template = "\t\t\t{}┌[{}{{}}{}]\n\t\t\t└[message]-> {}{{}}{{}}{}\n";
+
+    return fmt::format(fwd_template, fg(color::CLEAR), fg(color::BOLD_GREEN), fg(color::CLEAR), fg(color::BOLD_YELLOW),
+                       fg(color::CLEAR));
+}
+
+template<class T>
+static std::string make_fwd(T from, T types, T text){
+    return fmt::format(colorize_fwd_template(), from, types, text);
+}
+
+void reader::message::operator=(simdjson::dom::element json){
     _reader_data = reader::reader_data{std::string(json["object"]["message"]["text"]),
                                        json["object"]["message"]["peer_id"], json["object"]["message"]["from_id"]};
 
@@ -28,9 +42,8 @@ std::string reader::message::message_text() const{
         result.append(" {fwd message}:\n");
 
         for (const auto& fwd: _message_parser.get_fwd()){
-            result.append(fmt::format("\t\t\t\033[0m┌[\033[1;32m{}\033[0m]\n\t\t\t└[message]-> \033[1;36m{}{}\033[0m\n",
-                                      _message_parser.get_fwd_from(fwd), _message_parser.get_fwd_attachments_types(fwd),
-                                      _message_parser.get_fwd_text(fwd)));
+            result.append(make_fwd(_message_parser.get_fwd_from(fwd), _message_parser.get_fwd_attachments_types(fwd),
+                                   _message_parser.get_fwd_text(fwd)));
         }
     }
 

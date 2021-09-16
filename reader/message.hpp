@@ -14,7 +14,7 @@ namespace reader{
         vk::vk_api _api;
         reader::message_parser _message_parser;
     public:
-        void operator=(const simdjson::dom::element &json);
+        void operator=(simdjson::dom::element json);
 
         std::string message_text() const;
         std::string from() const;

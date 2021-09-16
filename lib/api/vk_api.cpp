@@ -16,16 +16,16 @@ vk::vk_api::vk_api(){
     simdjson::dom::parser parser;
     auto json = parser.load("../config/config.json");
 
-    _config = vk::vk_api_data{std::string(json["TOKEN"]),
-                              std::string(json["GROUP"]),
-                              std::string(json["API_V"])};
+    _config = vk::vk_api_data{std::string(json["TOKEN"]), std::string(json["GROUP"]), std::string(json["API_V"])};
 }
 
 vk::longpoll_data vk::vk_api::get_lp_server() const{
     simdjson::dom::parser parser;
-    auto json = parser.parse(vk::request(method("groups.getLongPollServer"), params({{"group_id", _config.group}})));
+    auto json = parser.parse(vk::request(method("groups.getLongPollServer"),
+                                         params({{"group_id", _config.group}})));
 
-    return {std::string(json["response"]["server"]), std::string(json["response"]["key"]),
+    return {std::string(json["response"]["server"]),
+            std::string(json["response"]["key"]),
             std::string(json["response"]["ts"])};
 }
 
@@ -35,7 +35,7 @@ std::string vk::vk_api::user_get(std::int32_t user_ids) const{
                                          params({{"user_ids", std::to_string(user_ids)}})));
 
     return fmt::format("{} {}", std::string(json["response"].at(0)["first_name"]),
-                                std::string(json["response"].at(0)["last_name"]));
+                       std::string(json["response"].at(0)["last_name"]));
 }
 
 std::string vk::vk_api::group_get(std::int32_t group_ids) const{
