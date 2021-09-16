@@ -20,7 +20,9 @@ set(SOURCES main.cpp
             reader/message.hpp
             reader/message.cpp
             reader/message_parser.hpp
-            reader/message_parser.cpp)
+            reader/message_parser.cpp
+            reader/color.hpp
+            reader/color.cpp)
 
 set(INCLUDE_DIRECTORIES .
             lib
