@@ -5,7 +5,6 @@ void reader::message_parser::operator=(simdjson::dom::element json){
     _json = json;
 }
 
-
 bool reader::message_parser::has_reply() const{
     return _json["object"]["message"]["reply_message"].is_object();
 }

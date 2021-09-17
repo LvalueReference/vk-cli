@@ -5,11 +5,11 @@ std::string vk::vk_api::method(std::string_view method_name) const{
     return fmt::format("https://api.vk.com/method/{}?", std::string(method_name.data(), method_name.size()));
 }
 
-vk::param_type vk::vk_api::params(vk::param_type parameter_pack) const{
-    parameter_pack.push_back({"access_token", _config.token});
-    parameter_pack.push_back({"v", _config.api_v});
+vk::params_t&& vk::vk_api::params(vk::params_t&& parameter_pack) const{
+    parameter_pack.emplace_back(std::make_pair("access_token", _config.token));
+    parameter_pack.emplace_back(std::make_pair("v", _config.api_v));
 
-    return parameter_pack;
+    return std::move(parameter_pack);
 }
 
 vk::vk_api::vk_api(){
