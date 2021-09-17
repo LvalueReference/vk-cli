@@ -14,7 +14,7 @@ namespace vk{
         vk::vk_api_data _config;
 
         std::string method(std::string_view method_name) const;
-        vk::param_type params(vk::param_type parameter_pack) const;
+        vk::params_t&& params(vk::params_t&& parameter_pack) const;
     public:
         vk_api();
 

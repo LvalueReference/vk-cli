@@ -6,9 +6,9 @@
 #include <vector>
 
 namespace vk{
-    using param_type = std::vector<std::pair<std::string, std::string>>;
+    using params_t = std::vector<std::pair<std::string, std::string>>;
 
-    std::string request(std::string_view url, const param_type& parameter_pack);
+    std::string request(std::string_view url, params_t&& parameter_pack);
 }
 
 #endif //NETWORK_HPP
