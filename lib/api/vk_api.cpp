@@ -2,7 +2,7 @@
 #include "fmt/format.h"
 
 std::string vk::vk_api::method(std::string_view method_name) const{
-    return fmt::format("https://api.vk.com/method/{}?", std::string(method_name.data(), method_name.size()));
+    return fmt::format("https://api.vk.com/method/{}?", std::string(method_name));
 }
 
 vk::params_t&& vk::vk_api::params(vk::params_t&& parameter_pack) const{
