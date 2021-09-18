@@ -29,30 +29,19 @@
   - Заполните конфиг данными, которые вы копировали из *пункта 1*
   - В поле `API_V` нужно указать последнюю версию **VK Api**, узнать её можно [**здесь**](https://vk.com/dev/versions)
 
-# Установка библиотек
-- Windows:
-    - Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
-    - ```shell
-      vcpkg install curl[openssl]:x64-windows
-      ```
-    - ```shell
-      vcpkg integrate install
-      ```
-    
-- Debian-based дистрибутивы:
-  ```shell
-  sudo apt install cmake libcurl4 libcurl4-openssl-dev
-  ```
-  
-- Arch-based дистрибутивы:
-  ```shell
-  sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev
-  ```
-- MacOS:
-  ```shell
-  brew install curl
-  ```
+# Установка библиотек 
+OS | Command
+---|---
+Windows | ```vcpkg install curl[openssl]:x64-windows``` |
+MacOS | ```brew install curl``` |
+Debian-based дистрибутивы | ```sudo apt install cmake libcurl4 libcurl4-openssl-dev ``` |
+Arch-based дистрибутивы | ```sudo pacman -Sy cmake libcurl4 libcurl4-openssl-dev``` |
 
+### vcpkg
+1. Установить vcpkg, следуя инструкции из официальной [**статьи**](https://github.com/microsoft/vcpkg#quick-start-windows)
+2. ```shell
+   vcpkg integrate install
+   ```
 # Сборка
 1. Windows
 ```shell
