@@ -66,7 +66,7 @@ std::string reader::message_parser::get_reply_attachments_types() const{
     std::string result;
 
     for (const auto& att : get_attachments(get_reply()))
-        result.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
+        result.append(fmt::format("[{}] ", get_attachment_type(att)));
 
     return result;
 }
@@ -77,7 +77,7 @@ std::string reader::message_parser::get_fwd_attachments_types(simdjson::dom::ele
     std::string result;
 
     for (const auto& att : get_attachments(fwd))
-        result.insert(0, fmt::format("[{}] ", get_attachment_type(att)));
+        result.append(fmt::format("[{}] ", get_attachment_type(att)));
 
     return result;
 }

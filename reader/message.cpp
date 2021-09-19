@@ -29,7 +29,7 @@ std::string reader::message::message_text() const{
     std::string result = _reader_data.message;
 
     if (_message_parser.has_reply())
-        result.insert(0, fmt::format("[reply to {}: {}{}] ", _message_parser.get_reply_from(),
+        result.append(fmt::format("[reply to {}: {}{}] ", _message_parser.get_reply_from(),
                                      _message_parser.get_reply_attachments_types(), _message_parser.get_reply_text()));
 
     if (_message_parser.has_attachments()){
