@@ -41,3 +41,4 @@ build
 
 # Project files
 config/my_config.json
+logs.txt
