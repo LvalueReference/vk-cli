@@ -28,15 +28,15 @@ void reader::message::operator=(simdjson::dom::element json){
 std::string reader::message::message_text() const{
     std::string result = _reader_data.message;
 
-    if (_message_parser.has_reply())
-        result.append(fmt::format("[reply to {}: {}{}] ", _message_parser.get_reply_from(),
-                                     _message_parser.get_reply_attachments_types(), _message_parser.get_reply_text()));
-
     if (_message_parser.has_attachments()){
         for (const auto& att: _message_parser.get_attachments()){
             result.append(fmt::format(" [{}]", _message_parser.get_attachment_type(att)));
         }
     }
+
+    if (_message_parser.has_reply())
+        result.append(fmt::format(" [reply to {}: {}{}] ", _message_parser.get_reply_from(),
+                                  _message_parser.get_reply_attachments_types(), _message_parser.get_reply_text()));
 
     if (_message_parser.has_fwd()){
         result.append(" {fwd message}:\n");
